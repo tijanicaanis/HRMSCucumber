@@ -14,6 +14,9 @@ public class ViewEmployeePageElements {
 	@FindBy (id="empsearch_id")
 	public WebElement EmpID;
 	
+	@FindBy(id = "searchBtn")
+	public WebElement searchBtn;
+	
 	public  ViewEmployeePageElements() {
 		PageFactory.initElements(BaseClass.driver,this);
 	}

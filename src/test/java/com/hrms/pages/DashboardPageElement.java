@@ -1,5 +1,7 @@
 package com.hrms.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -14,7 +16,7 @@ public class DashboardPageElement extends CommonMethods{
 	public WebElement welcome;
 	
 	@FindBy(xpath="//div[@id='branding']/a[1]/img")
-	public WebElement login;
+	public WebElement logo;
 	
 	
 	@FindBy(xpath = "//a[@id='menu_pim_viewPimModule']")
@@ -26,11 +28,12 @@ public class DashboardPageElement extends CommonMethods{
 	@FindBy(id= "menu_core_viewDefinedPredefinedReports")
 	public WebElement reports;
 	
-	@FindBy(id= "btnAdd")
-	public WebElement addBtn;
 	
 	@FindBy(id="menu_pim_viewEmployeeList")
 	public WebElement empListPage;
+	
+	@FindBy(xpath="//div[@class='menu']/ul/li")
+	public List<WebElement> menu;
 	
 	public DashboardPageElement() {
 		PageFactory.initElements(BaseClass.driver, this);
@@ -39,9 +42,6 @@ public class DashboardPageElement extends CommonMethods{
 		jsClick(PIM);
 		jsClick(addEmp);
 	}
-	public void navigateToAddReports() {
-		jsClick(reports);
-		jsClick(addBtn);
-	}
+	
 }
 
