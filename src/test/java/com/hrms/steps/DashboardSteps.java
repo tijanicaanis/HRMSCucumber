@@ -17,7 +17,7 @@ public class DashboardSteps extends CommonMethods{
 public void user_see_dashboard_menu_is_displayed(DataTable dashboardMenu) {
 	List<String>expectedMenu=dashboardMenu.asList();
 	List<String>actualManu=new ArrayList<>();
-	for(WebElement el:dashboard.menu) {
+	for(WebElement el:dashboard.adminMenu) {
 		actualManu.add(el.getText());
 	}
 	System.out.println(expectedMenu);
@@ -25,4 +25,14 @@ public void user_see_dashboard_menu_is_displayed(DataTable dashboardMenu) {
 	Assert.assertTrue(actualManu.equals(expectedMenu));
 }
 
+@Then("user see ess dashboard menu is displayed")
+public void user_see_ess_dashboard_menu_is_displayed(DataTable essDashboardMenu) {
+	List<String>expectedMenu=essDashboardMenu.asList(); 
+	List<String>actualManu=new ArrayList<>();
+	for(WebElement el:dashboard.adminMenu) {
+		actualManu.add(el.getText());
+	}
+	Assert.assertTrue(expectedMenu.equals(actualManu));
+
+}
 }

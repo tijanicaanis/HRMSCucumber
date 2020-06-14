@@ -33,8 +33,13 @@ public class DashboardPageElement extends CommonMethods{
 	public WebElement empListPage;
 	
 	@FindBy(xpath="//div[@class='menu']/ul/li")
-	public List<WebElement> menu;
+	public List<WebElement> adminMenu;
 	
+	@FindBy(xpath = "//div[@class='menu']/ul/li")
+	public List<WebElement> essMenu;
+	
+	@FindBy(id="welcome-menu")
+	public WebElement logout;
 	public DashboardPageElement() {
 		PageFactory.initElements(BaseClass.driver, this);
 	}

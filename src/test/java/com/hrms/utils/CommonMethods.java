@@ -8,6 +8,7 @@ import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchFrameException;
@@ -70,7 +71,7 @@ public static void clickRadioOrCheckBox(List<WebElement> radioOrCheckbox,String 
 	 * @param element
 	 * @param index
 	 */
-	public static void selectDdValue(WebElement element,int index) {
+	public static void selectDdIndex(WebElement element,int index) {
 		try {
 		Select select=new Select(element);
 		List<WebElement>option=select.getOptions();
@@ -231,6 +232,22 @@ public static void clickRadioOrCheckBox(List<WebElement> radioOrCheckbox,String 
 				}
 			}
 	 }
+	 public static void selectCalendarMonth(List<WebElement> element, String text) {
+
+	 WebElement depMonths=driver.findElement(By.xpath("//span[@class='ui-datepicker-month']"));
+		String depMonth=depMonths.getText();
+			if(!depMonth.contains("July")) {
+			driver.findElement(By.xpath("//a[@class='ui-datepicker-next ui-corner-all']")).click();
+			}
+			
+			List<WebElement>days=driver.findElements(By.xpath("//table[@class='ui-datepicker-calendar']/tbody/tr/td"));
+			for(WebElement day:days) {
+				if(day.getText().equals("14")) {
+					day.click();
+					break;
+				}
+			}
+			}
 	 /**
 	  * This is Method for screenshot
 	  */

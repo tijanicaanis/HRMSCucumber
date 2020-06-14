@@ -26,6 +26,7 @@ book=new XSSFWorkbook(fileIS);
 }
 	private static void loadSheet(String sheetName) {
 		sheet=book.getSheet(sheetName);
+	
 	}
 	private static int rowCount() {
 		return sheet.getPhysicalNumberOfRows();

@@ -5,7 +5,7 @@ import com.hrms.utils.CommonMethods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
+ 
 public class EmployeeSearchSteps extends CommonMethods {
 
 
@@ -15,9 +15,9 @@ public class EmployeeSearchSteps extends CommonMethods {
 		jsClick(dashboard.empListPage);
 	}
 
-	@When("user enters valid employee id")
-	 public void user_enters_valid_employee_id() { 
-		sendText(viewEmp.EmpID, "10079");
+	@When("user enters valid employee id {string}")
+	 public void user_enters_valid_employee_id(String empId) { 
+		sendText(viewEmp.EmpID, empId);
 	}
 
 	@When("click on search button")

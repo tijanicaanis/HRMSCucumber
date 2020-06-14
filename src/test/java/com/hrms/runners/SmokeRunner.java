@@ -16,10 +16,12 @@ import io.cucumber.junit.CucumberOptions;
 	   ,tags="@smoke"
 			,plugin= {
 					"pretty",
-					"html:target/cucumber-default-report"
+					"html:target/cucumber-default-report",
+					"json:target/cucumber.json"
+					,"rerun:target/failed.txt"
 			})
 	
-	public class TestRun {
+	public class SmokeRunner {
 		
 	}
 

@@ -68,7 +68,8 @@ public class AddEmployee extends CommonMethods {
 	@Then("{string}, {string} and {string} is added successfully")
 	public void and_is_added_successfully(String fname, String middleName, String laName) {
 		String actual = pdetails.profilePic.getText();
-		Assert.assertEquals(fname+" "+middleName+" "+laName, actual,"wrong name");
+		String expected=fname+" "+middleName+" "+laName;
+		Assert.assertEquals(expected, actual);
 		System.out.println("I added the employee !!!!!!!!!!!!!!!!!!!!!!!");
 		wait(2);
 	}
@@ -106,7 +107,17 @@ public class AddEmployee extends CommonMethods {
 public void user_enters_employee_data_from_excel_sheet_then_employee_is_added(String sheetName) {
 	List<Map<String, String>> excelList=ExcelUtility.excelIntoListOfMaps(Constants.TESTDATA_FILEPATH, sheetName);
 for(Map <String,String>map:excelList) {
-	//HW
+	String fname=map.get("firstName");
+	String lname=map.get("lastName");
+	
+	sendText(addEmp.firstName,fname);
+	sendText(addEmp.lastName,lname);
+	jsClick(addEmp.btnSave);
+String actual=pdetails.profilePic.getText();
+String expected=fname+" "+lname;
+Assert.assertEquals("Employee is not addedd successfully", expected, actual);
+jsClick(dashboard.addEmp);
+wait(5);
 }
 }
 }

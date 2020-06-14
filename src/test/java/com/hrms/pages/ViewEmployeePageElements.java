@@ -17,6 +17,8 @@ public class ViewEmployeePageElements {
 	@FindBy(id = "searchBtn")
 	public WebElement searchBtn;
 	
+	@FindBy(xpath="//table[@id='resultTable']/tbody/tr/td[2]")
+	public WebElement clickEmpBth;
 	public  ViewEmployeePageElements() {
 		PageFactory.initElements(BaseClass.driver,this);
 	}
